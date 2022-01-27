@@ -1,3 +1,3 @@
-# hand-tracking
+# Hand tracking
 
-![A](video.gif)
+![Test](image.png)

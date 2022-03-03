@@ -52,29 +52,19 @@ with mp_hands.Hands(
     if len(lmList) != 0:
       x_0, y_0 = lmList[8][1], lmList[8][2]
       x_1, y_1 = lmList[4][1], lmList[4][2]
-      x_2, y_2 = lmList[20][1], lmList[20][2]
-      x_3, y_3 = lmList[16][1], lmList[16][2]
 
       # Marking Index finger  
       cv2.circle(image, (x_0,y_0),15,(255,255,255)) 
-      cv2.circle(image, (x_1,y_1),15,(255,255,255)) 
-
-      print('X: ', x_0, 'Y: ', y_0)
+      cv2.circle(image, (x_1,y_1),15,(255,255,255))
 
       ret,frame = cap.read()
       windowWidth=frame.shape[1]
       windowHeight=frame.shape[0]
-      pag.moveTo((windowWidth - x_0), y_0)
+      pag.moveTo((windowWidth - x_1), y_1)
 
       thumb_index_length = math.hypot(x_0-x_1,y_0-y_1)
       if thumb_index_length < 50:
         pag.click()
-      # thumb_pinkie_length = math.hypot(x_2-x_1,y_2-y_1)
-      # if thumb_pinkie_length < 50:
-        # pag.press('space')
-      # thumb_annular_length = math.hypot(x_3-x_1,y_3-y_1)
-      # if thumb_annular_length < 50:
-        # pag.press('esc')
 
 
     # Flip the image horizontally for a selfie-view display.
